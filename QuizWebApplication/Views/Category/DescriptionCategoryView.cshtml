@@ -1,0 +1,27 @@
+﻿@model QuizWebApplication.Models.Dto.CategoryDto
+@{
+    ViewData["Title"] = "Description";
+}
+
+<div class="container">
+
+    
+ 
+
+    <div class="categoryName">
+        <h1>@Model.Name</h1>
+
+    </div>
+    <div class="description">
+        <h3>@Model.Description</h3>
+
+        <div> Please select option</div>
+    </div>
+
+    <div class="navigation">
+
+        <a class="btn alert-danger"asp-controller="Category" asp-action="CategoryMainView"> Go back</a>
+        <a class="btn alert-info"  asp-controller="Question" asp-action="QuestionView" asp-route-Id ="@Model.Id"> Let's go</a>
+    </div>
+
+</div>

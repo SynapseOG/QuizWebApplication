@@ -1,0 +1,50 @@
+﻿@model IEnumerable<QuizWebApplication.Models.Dto.CategoryDto>
+@{
+    ViewData["Title"] = "GetCategories";
+}
+
+<h1>GetCategories</h1>
+<link rel="stylesheet" href="~/css/RankingStyle.css" asp-append-version="true"  />
+<a asp-action="CreateCategory" asp-controller="Admin" class="btn-primary"> Stworz nowa kategorie</a>
+
+<div>
+   <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Działania
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            
+            <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td >
+                <div class="btn-group" role="group" >
+                <a asp-action="Edit" asp-controller="Admin" asp-route-Id="@item.Id" class="btn-primary mx-1">Edytuj</a>
+                <a asp-action="DeleteCategory" asp-controller="Admin"  asp-route-Id="@item.Id" class="btn-danger mx-1">Usuń</a>
+                <a asp-action="CreateQuestion" asp-controller="Admin" asp-route-Id="@item.Id" class="btn-primary">Dodaj Pytanie</a>
+                <a asp-action="DeleteQuestion" asp-controller="Admin" asp-route-Id="@item.Name" class="btn-danger">Usuń Pytanie</a>
+                 </div>
+            </td> 
+                  
+        </tr>
+}
+    </tbody>
+</table>
+</div>

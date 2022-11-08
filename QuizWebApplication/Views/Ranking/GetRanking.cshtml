@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QuizWebApplication.Models.Ranking>
+
+@{
+    ViewData["Title"] = "GetRanking";
+            int i = 0;
+   
+}
+
+<h1>GetRanking</h1>
+<link rel="stylesheet" href="~/css/RankingStyle.css" asp-append-version="true"  />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Miejsce
+            </th>
+            <th>
+                Gracz
+            </th>
+            <th>
+                Punkty
+            </th>
+            <th>
+                Dobre odpowiedzi(%)
+            </th>
+            <th>
+                Ilość gier
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            i++;
+            <tr>
+            <td>
+               @i.
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentOfGoodAnswers)%
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.GamesPlayed)
+            </td>        
+        </tr>
+}
+    </tbody>
+</table>

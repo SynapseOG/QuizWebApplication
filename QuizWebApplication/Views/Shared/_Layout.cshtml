@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - QuizWebApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/QuizWebApplication.styles.css" asp-append-version="true" />
+   
+</head>
+<body>
+    <header>
+       <div class="sidenav">
+              <a asp-action="Index" asp-controller="Home">Home</a>
+              <a asp-action="CategoryMainView" asp-controller="Category">Play</a>
+              <a asp-action="GetRanking" asp-controller="Ranking">Ranking</a>
+              <a href="#">Contact</a>
+              <a asp-action="Management" asp-controller="Admin">Admin Panel</a>
+              <partial name="_LoginPartial" />
+            </div>
+    </header>
+   
+    <div class="main">
+            @RenderBody()
+    </div>
+       
+ @*   <partial name="_LoginPartial" />*@
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="_framework/blazor.server.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

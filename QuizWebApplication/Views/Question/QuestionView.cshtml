@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QuizWebApplication.Models.Dto.QuestionDto>
+@{
+    ViewData["Title"] = "QuestionView";
+}
+
+
+ 
+<div class="container">
+     
+
+
+    @using(Html.BeginForm("QuestionView", "Question", FormMethod.Post))
+    {
+        foreach (var item in Model)
+        {
+            var questionList = new List<string>();
+            questionList.Add($"{@item.QuestionContent}");
+
+            <div>
+
+                <div class="question">
+          
+                    <br/>
+                    <div>
+                         <p>@item.QuestionContent  <input type="checkbox"checked="checked" value="0" name="@item.QuestionId.ToString()" hidden="hidden"/> </p> 
+                    </div>
+                </div>
+                <br/>
+                <div> 
+                        <div class=" divbtn">            
+                        <label><input type="checkbox"  name="@item.AnswerA" value="1"/> <span>@item.AnswerA</span> </label>
+               
+                         </div >
+
+                        <div class="divbtn">
+                             <label><input type="checkbox" name="@item.AnswerB" value="2"/> <span >@item.AnswerB</span> </label>
+                        </div>
+
+                        <div class="divbtn">
+                             <label><input type="checkbox" name="@item.AnswerC" value="3" /> <span>@item.AnswerC</span> </label>
+                        </div>
+
+                        <div class="divbtn"> 
+                            <label><input type="checkbox"  name="@item.AnswerD" value="4" /> <span>@item.AnswerD</span> </label>
+
+                        </div>
+                </div>
+                
+           </div>
+                
+          
+        }
+        <input type="submit" value="submit" />
+        
+    }
+
+
+</div>

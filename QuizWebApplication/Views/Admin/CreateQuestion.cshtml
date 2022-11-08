@@ -1,0 +1,30 @@
+﻿@model QuizWebApplication.Models.Dto.QuestionDto
+@{
+    ViewData["Title"] = "CreateQuestion";
+}
+
+<h1>CreateQuestion</h1>
+
+
+<form asp-action="CreateQuestionPost" method="post">
+
+    <label>Podaj pytanie</label>
+    <p><input type="text" asp-for="QuestionContent"/></p> 
+    <br />
+    <h2>Podaj odpowiedzi</h2>
+    <br />
+
+    
+    <p> A.<input type="text" asp-for="AnswerA"/></p> 
+    
+    <p>B.<input type="text" asp-for="AnswerB"/></p> 
+   
+    <p>C.<input type="text" asp-for="AnswerC"/></p> 
+    
+    <p>D.<input type="text" asp-for="AnswerD"/></p>
+
+    <label>Podaj prawidłową odpowiedź</label>
+    <p><input type="text" asp-for="CorrectAnswer"/></p>
+    <input type="submit" value="Dodaj"/>
+
+</form>
